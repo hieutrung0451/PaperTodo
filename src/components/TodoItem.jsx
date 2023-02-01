@@ -7,15 +7,9 @@ const Complete = styled.div`
 `;
 
 const TodoItem = ({ text, completed }) => {
-  // const [complete, SetComplete] = useState(false);
-
-  // const todoComplete = () => {
-  //   SetComplete(!complete);
-  // };
-
   return (
     <>
-      {completed === "active" ? (
+      {completed === false ? (
         <div className="padding-small border border-primary margin-bottom shadow">
           {text}
         </div>

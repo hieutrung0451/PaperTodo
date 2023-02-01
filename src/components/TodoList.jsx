@@ -8,7 +8,11 @@ const TodoList = ({ tasks }) => {
         <div>Chill Scene</div>
       ) : (
         tasks.map((task) => (
-          <TodoItem key={task.id} text={task.text} completed={task.completed} />
+          <TodoItem
+            key={task.id}
+            text={task.text}
+            completed={task.completed}
+          />
         ))
       )}
     </ul>

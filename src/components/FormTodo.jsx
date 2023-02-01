@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 const FormTodo = ({ addNewTask }) => {
@@ -11,10 +10,12 @@ const FormTodo = ({ addNewTask }) => {
     const newTask = {
       id: uuidv4(),
       text: text,
-      completed: "active",
+      completed: false,
     };
 
     addNewTask(newTask);
+
+    setText("");
   };
 
   return (
@@ -28,6 +29,7 @@ const FormTodo = ({ addNewTask }) => {
           placeholder="new todo"
           id="todo-input"
           className="margin-right"
+          value={text}
           onChange={(e) => setText(e.target.value)}
         />
         <button type="submit" className="btn-small shadow">

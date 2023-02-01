@@ -18,6 +18,10 @@ const Paper = styled.div`
 const App = () => {
   const [tasks, setTasks] = useState([]);
 
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
+
   const addNewTask = (newTask) => {
     setTasks([newTask, ...tasks]);
   };
@@ -32,9 +36,19 @@ const App = () => {
         <h3 className="margin-small">Paper Todo</h3>
         <FormTodo addNewTask={addNewTask} />
         <TodoList tasks={tasks} />
-        <button onClick={clearAllTasks} className="margin-top-large">
-          Clear
-        </button>
+        <div className="row">
+          <button onClick={clearAllTasks} className="margin-top-large">
+            Clear
+          </button>
+          {/* <div class="form-group">
+            <label for="paperSelects1">Select</label>
+            <select id="paperSelects1">
+              <option value="1">Option 1</option>
+              <option value="2">Option 2</option>
+              <option value="3">Option 3</option>
+            </select>
+          </div> */}
+        </div>
       </Paper>
     </Container>
   );
